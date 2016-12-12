@@ -1,0 +1,24 @@
+{
+  "name": "exo",
+  "description": "exo pour angular",
+  "main": "index.js",
+  "authors": [
+    "Jean-Louis GUENEGO"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "angular",
+    "test"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.6.0"
+  }
+}
