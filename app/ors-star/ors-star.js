@@ -7,12 +7,14 @@
 		return {
 			restrict: 'E',
 			scope: {
-				n: '=note'
+				n: '=?note'
 			},
 			link: function(scope, element, attrs) {
 				console.log('orsStar link', arguments);
-				scope.update = function() {
+				
+				scope.update = function(note) {
 					console.log('update', arguments);
+					scope.n = note;
 				};
 				
 				scope.$watch('n', function() {
