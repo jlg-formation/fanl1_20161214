@@ -5,7 +5,7 @@
 	
 	app.directive('orsStar', ['$compile', function($compile) {
 		return {
-			restrict: 'E',
+			restrict: 'EACM',
 			scope: {
 				n: '=?note'
 			},
