@@ -31,7 +31,7 @@
 					note = (note < 0) ? 0 : note;
 					
 					for (var i = 0; i < note; i++) {
-						html += '<img ng-click="update(' + (i+1) + ')" src="ors-star/img/yellow_star.png" />';
+						html += '<img ng-click="update(' + i + ')" src="ors-star/img/yellow_star.png" />';
 					}
 					for (var i = note; i < 5; i++) {
 						html += '<img ng-click="update(' + (i+1) + ')" src="ors-star/img/white_star.png" />';
