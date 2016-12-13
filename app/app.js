@@ -2,7 +2,9 @@
 	'use strict';
 
 	var app = angular.module('mainApp', ['ors-star', 'ngRoute']);
-	app.config(['$routeProvider', function($routeProvider) {
+	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+		$locationProvider
+			.html5Mode(true);
 
 		$routeProvider
 			.when('/', {

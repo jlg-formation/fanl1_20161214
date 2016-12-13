@@ -1,0 +1,28 @@
+* {
+	box-sizing: border-box;
+}
+
+menu {
+	display: block;
+}
+
+menu-item {
+	display: inline-block;
+	margin: 0 10px;
+	background-color: hsla(0, 100%, 90%, 1);
+	padding: 0;	
+	
+}
+
+menu-item a {
+	display: block;
+	padding: 15px 10px;
+	width: 100%;
+	height: 100%;
+	
+}
+
+menu-item:hover {
+	background-color: hsla(0, 100%, 80%, 1);
+	cursor: pointer;
+}
