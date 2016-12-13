@@ -3,7 +3,7 @@
 
 	var app = angular.module('ors-star', []);
 	
-	app.directive('orsStar', function() {
+	app.directive('orsStar', ['$compile', function($compile) {
 		return {
 			restrict: 'E',
 			scope: {
@@ -11,7 +11,9 @@
 			},
 			link: function(scope, element, attrs) {
 				console.log('orsStar link', arguments);
-				scope['3'] = 1;
+				scope.update = function() {
+					console.log('update', arguments);
+				};
 				
 				scope.$watch('n', function() {
 					var html = '';
@@ -27,16 +29,20 @@
 					note = (note < 0) ? 0 : note;
 					
 					for (var i = 0; i < note; i++) {
-						html += '<img src="ors-star/img/yellow_star.png" />';
+						html += '<img ng-click="update(' + (i+1) + ')" src="ors-star/img/yellow_star.png" />';
 					}
 					for (var i = note; i < 5; i++) {
-						html += '<img src="ors-star/img/white_star.png" />';
+						html += '<img ng-click="update(' + (i+1) + ')" src="ors-star/img/white_star.png" />';
 					}
 					element.html(html);
+					var fn = $compile(element.contents());
+					//console.log('fn', fn.toString());
+					fn(scope);
+					
 				});
 				
 				
 			}
 		};
-	});
+	}]);
 })();
