@@ -1,8 +1,8 @@
 <menu>
-	<menu-item><a href="./">Accueil</a></menu-item>
-	<menu-item><a href="./products">Produits</a></menu-item>
-	<menu-item><a href="./services">Services</a></menu-item>
-	<menu-item><a href="./contact">Contact</a></menu-item>
+	<menu-item ng-class="{active: isActive('/')}"><a href="./">Accueil</a></menu-item>
+	<menu-item ng-class="{active: isActive('/products')}"><a href="./products">Produits</a></menu-item>
+	<menu-item ng-class="{active: isActive('/services')}"><a href="./services">Services</a></menu-item>
+	<menu-item ng-class="{active: isActive('/contact')}"><a href="./contact">Contact</a></menu-item>
 </menu>
 <hr/>
 

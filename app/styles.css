@@ -22,6 +22,12 @@ menu-item a {
 	
 }
 
+menu-item.active {
+	background-color: hsla(230, 100%, 90%, 1);
+}
+
+
+
 menu-item:hover {
 	background-color: hsla(0, 100%, 80%, 1);
 	cursor: pointer;

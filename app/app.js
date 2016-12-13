@@ -23,6 +23,17 @@
 				redirectTo: '/'
 			});
 	}]);
+	
+	app.run(['$rootScope', '$location', function($rootScope, $location){
+		console.log('mainApp : Run');
+		$rootScope.isActive = function(url) {
+			console.log('$location : ', $location);
+			console.log('$location.path : ', $location.path());
+			
+			return ($location.path() === url);
+		};
+	}]);
+	
 	app.directive('orsHeader', function() {
 		return {
 			restrict: 'E',
