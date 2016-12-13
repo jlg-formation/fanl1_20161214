@@ -24,8 +24,10 @@
 			});
 	}]);
 	
-	app.run(['$rootScope', '$location', function($rootScope, $location){
+	app.run(['$injector', function($injector){
 		console.log('mainApp : Run');
+		var $rootScope = $injector.get('$rootScope');
+		var $location = $injector.get('$location');
 		$rootScope.isActive = function(url) {
 			console.log('$location : ', $location);
 			console.log('$location.path : ', $location.path());
