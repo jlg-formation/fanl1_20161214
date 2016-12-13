@@ -13,6 +13,7 @@
 				var note = attrs.note;
 				console.log('note', note);
 				note = (note === undefined || note === '') ? 2 : note;
+				note = (scope[note] === undefined) ? note : scope[note];
 				note = Number(note);
 				note = (isNaN(note)) ? 2 : note;
 				for (var i = 0; i < note; i++) {
