@@ -11,9 +11,10 @@
 				
 				var html = '';
 				var note = attrs.note;
-				
 				console.log('note', note);
 				note = (note === undefined || note === '') ? 2 : note;
+				note = Number(note);
+				note = (isNaN(note)) ? 2 : note;
 				for (var i = 0; i < note; i++) {
 					html += '<img src="ors-star/img/yellow_star.png" />';
 				}
