@@ -27,9 +27,11 @@
 	}]);
 	
 	app.run(['$injector', function($injector){
-		console.log('mainApp : Run');
+		
+		var $log = $injector.get('$log');
 		var $rootScope = $injector.get('$rootScope');
 		var $location = $injector.get('$location');
+		$log.debug('mainApp : Run');
 		$rootScope.isActive = function(url) {
 			//console.log('$location : ', $location);
 			//console.log('$location.path : ', $location.path());
@@ -39,26 +41,31 @@
 	}]);
 	
 	app.controller('ProductCtrl', ['$scope', '$injector', function($scope, $injector) {
-		console.log('ProductCtrl', arguments);
+		
 		var $q = $injector.get('$q');
 		var $http = $injector.get('$http');
-		
+		var $log = $injector.get('$log');
+		$log.debug('ProductCtrl', arguments);
 		$scope.messages = [];
 		
 		$scope.start = function() {
-			console.log('start', arguments);
+			$log.debug('start', arguments);
 			
 			$http.get('/ws/s1', {params: {a: 23, b: 'coucou'}}).then(function(response) {
-				console.log('s1 success', response);
+				console.log('bleh');
+				$log.debug('s1 success', response);
 				$scope.messages.push('s1 success');
 				return $q.all([$http.post('/ws/s2', {a: 12, b: {kiki: 'coucou'}}), $http.get('/ws/s3'), $http.get('/ws/s4')]);
 			}).then(function(responses) {
+				console.log('bleh blah', responses[0].data, responses[1].data, responses[2].data);
 				$scope.messages.push('s2,s3,s4 success');
 				return $http.get('/ws/s5');
 			}).then(function(response) {
+				console.log('blih', response.data);
+				
 				$scope.messages.push('s5 success');
 			}).catch(function(error) {
-				console.error('Error', error);
+				$log.error('Error', error);
 			});
 		};
 	}]);
