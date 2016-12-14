@@ -1,1 +1,4 @@
-Produits
+<button ng-click="start();">Start</button>
+<div ng-repeat="message in messages track by $index">
+	{{$index+1}} : {{message}}
+</div>

@@ -6,6 +6,10 @@
 
 	var app = express();
 	
+	var webservice = require('./ws/index.js');
+	
+	app.use('/ws', webservice);
+	
 	app.use(express.static('.'));
 	app.use(serveIndex('.', {icons: true}));
 	
