@@ -48,9 +48,10 @@
 		$scope.start = function() {
 			console.log('start', arguments);
 			
-			$http.get('/ws/s1').then(function() {
+			$http.get('/ws/s1', {params: {a: 23, b: 'coucou'}}).then(function(response) {
+				console.log('s1 success', response);
 				$scope.messages.push('s1 success');
-				return $q.all([$http.get('/ws/s2'), $http.get('/ws/s3'), $http.get('/ws/s4')]);
+				return $q.all([$http.post('/ws/s2', {a: 12, b: {kiki: 'coucou'}}), $http.get('/ws/s3'), $http.get('/ws/s4')]);
 			}).then(function(responses) {
 				$scope.messages.push('s2,s3,s4 success');
 				return $http.get('/ws/s5');
